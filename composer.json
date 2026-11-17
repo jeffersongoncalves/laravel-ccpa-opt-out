@@ -1,0 +1,72 @@
+{
+    "name": "jeffersongoncalves/laravel-ccpa-opt-out",
+    "description": "CCPA/CPRA opt-out ledger for Laravel: Do Not Sell or Share (§1798.120) and Limit the Use of Sensitive Personal Information (§1798.121), Global Privacy Control honored automatically, append-only proof and the 12-month wait before asking to opt back in.",
+    "keywords": [
+        "laravel",
+        "ccpa",
+        "cpra",
+        "opt-out",
+        "do-not-sell",
+        "global-privacy-control",
+        "gpc",
+        "privacy"
+    ],
+    "homepage": "https://github.com/jeffersongoncalves/laravel-ccpa-opt-out",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Jefferson Simão Gonçalves",
+            "email": "gerson.simao.92@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "spatie/laravel-package-tools": "^1.16",
+        "illuminate/contracts": "^12.0|^13.0"
+    },
+    "require-dev": {
+        "larastan/larastan": "^3.0",
+        "laravel/pint": "^1.24",
+        "orchestra/testbench": "^10.0|^11.0",
+        "pestphp/pest": "^3.0|^4.0",
+        "pestphp/pest-plugin-laravel": "^3.0|^4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "JeffersonGoncalves\\CcpaOptOut\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "JeffersonGoncalves\\CcpaOptOut\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": "@php ./vendor/bin/testbench package:discover --ansi",
+        "test": "vendor/bin/pest",
+        "test-coverage": "vendor/bin/pest --coverage",
+        "format": "vendor/bin/pint",
+        "analyse": "vendor/bin/phpstan analyse"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "phpstan/extension-installer": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "JeffersonGoncalves\\CcpaOptOut\\CcpaOptOutServiceProvider"
+            ],
+            "aliases": {
+                "CcpaOptOut": "JeffersonGoncalves\\CcpaOptOut\\Facades\\CcpaOptOut"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
